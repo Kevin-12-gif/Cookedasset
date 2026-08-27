@@ -78,7 +78,7 @@
         <span id="typing-text" class="typing-text"></span>
     </div>
 
-    <a href="index.html" id="cta-btn" class="cdn-btn">
+    <a href="https://legal.cookedasset.app" id="cta-btn" class="cdn-btn">
         Go to Cooked Asset <span class="arrow">→</span>
     </a>
 
@@ -95,18 +95,18 @@
                 typingSpan.textContent += char;
                 index++;
 
-                // Base delay for ~200 WPM (avg 60ms per char) with natural variance
-                let delay = Math.floor(Math.random() * 40) + 40;
+                // Base delay for ~300 WPM (avg 40ms per char) with natural variance
+                let delay = Math.floor(Math.random() * 25) + 30;
 
                 if (char === ',') {
-                    delay = 300;
+                    delay = 200;
                 } else if (char === '.') {
-                    delay = 600;
+                    delay = 400;
                 } else if (char === '!') {
                     if (nextChar === '!' || text.charAt(index - 2) === '!') {
-                        delay = 100;
+                        delay = 80;
                     } else {
-                        delay = 600;
+                        delay = 400;
                     }
                 }
 
