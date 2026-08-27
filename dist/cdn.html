@@ -83,7 +83,7 @@
     </a>
 
     <script>
-        const text = "Welcome to CookedAsset CDN, where you can install apps and media like MeowNet, your pictures and other things mentioned in the Discord server! You can't really do anything here, so come to the Official CookedAsset site!! :)";
+        const text = "Welcome to CookedAsset CDN, where you can install apps and media like MeowNet, pictures and other things mentioned in the Discord server! You can't really do anything here, so come to the Official CookedAsset site!! :)";
         const typingSpan = document.getElementById('typing-text');
         const ctaBtn = document.getElementById('cta-btn');
         let index = 0;
@@ -95,18 +95,18 @@
                 typingSpan.textContent += char;
                 index++;
 
-                // Base delay for ~74 WPM (avg 162ms per char) with natural variance
-                let delay = Math.floor(Math.random() * 60) + 132;
+                // Base delay for ~200 WPM (avg 60ms per char) with natural variance
+                let delay = Math.floor(Math.random() * 40) + 40;
 
                 if (char === ',') {
-                    delay = 600;
+                    delay = 300;
                 } else if (char === '.') {
-                    delay = 1000;
+                    delay = 600;
                 } else if (char === '!') {
                     if (nextChar === '!' || text.charAt(index - 2) === '!') {
-                        delay = 150;
+                        delay = 100;
                     } else {
-                        delay = 1000;
+                        delay = 600;
                     }
                 }
 
