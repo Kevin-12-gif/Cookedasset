@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cooked Asset CDN</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #FF8C42 0%, #60A3D9 100%);
+            margin: 0;
+            overflow: hidden;
+            text-align: center;
+            padding: 24px;
+            color: white;
+        }
+
+        .typing-container {
+            max-width: 800px;
+            font-size: clamp(1.2rem, 4vw, 2rem);
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 40px;
+            min-height: 150px;
+        }
+
+        .typing-text::after {
+            content: '|';
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .cdn-btn {
+            background: linear-gradient(90deg, #FF8C42, #FFB347);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(20px);
+            border: none;
+        }
+
+        .cdn-btn.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .cdn-btn:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            color: white;
+        }
+
+        .arrow {
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="typing-container">
+        <span id="typing-text" class="typing-text"></span>
+    </div>
+
+    <a href="index.html" id="cta-btn" class="cdn-btn">
+        Go to Cooked Asset <span class="arrow">→</span>
+    </a>
+
+    <script>
+        const text = "Welcome to CookedAsset CDN, where you can install apps and media like MeowNet, your pictures and other things mentioned in the Discord server! You can't really do anything here, so come to the Official CookedAsset site!! :)";
+        const typingSpan = document.getElementById('typing-text');
+        const ctaBtn = document.getElementById('cta-btn');
+        let index = 0;
+
+        function type() {
+            if (index < text.length) {
+                typingSpan.textContent += text.charAt(index);
+                index++;
+                setTimeout(type, 35);
+            } else {
+                ctaBtn.classList.add('show');
+            }
+        }
+
+        window.onload = type;
+    </script>
+</body>
+</html>
