@@ -90,9 +90,18 @@
 
         function type() {
             if (index < text.length) {
-                typingSpan.textContent += text.charAt(index);
+                const char = text.charAt(index);
+                typingSpan.textContent += char;
                 index++;
-                setTimeout(type, 35);
+
+                let delay = 60; // Slower base speed
+                if (char === ',') {
+                    delay = 450; // Little stop at a comma
+                } else if (char === '.' || char === '!') {
+                    delay = 900; // Slower stop at a period or exclamation
+                }
+
+                setTimeout(type, delay);
             } else {
                 ctaBtn.classList.add('show');
             }
