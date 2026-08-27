@@ -91,14 +91,24 @@
         function type() {
             if (index < text.length) {
                 const char = text.charAt(index);
+                const nextChar = text.charAt(index + 1);
                 typingSpan.textContent += char;
                 index++;
 
-                let delay = 60; // Slower base speed
+                // Slower and "laggier" base speed with random variance
+                let delay = Math.floor(Math.random() * 80) + 100;
+
                 if (char === ',') {
-                    delay = 450; // Little stop at a comma
-                } else if (char === '.' || char === '!') {
-                    delay = 900; // Slower stop at a period or exclamation
+                    delay = 600;
+                } else if (char === '.') {
+                    delay = 1000;
+                } else if (char === '!') {
+                    // Don't pause if part of '!!'
+                    if (nextChar === '!' || text.charAt(index - 2) === '!') {
+                        delay = 150;
+                    } else {
+                        delay = 1000;
+                    }
                 }
 
                 setTimeout(type, delay);
