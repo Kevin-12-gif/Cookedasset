@@ -476,6 +476,39 @@ table.data td {
     .footer-inner { flex-direction: column; text-align: center; }
 }
 
+/* --- Email Copy Feedback --- */
+.email-copy {
+    cursor: pointer;
+    text-decoration: underline;
+    transition: var(--transition);
+}
+
+.email-copy:hover {
+    color: var(--primary);
+}
+
+.copy-toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--text-dark);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 100px;
+    font-weight: 600;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    z-index: 2000;
+    opacity: 0;
+    transition: var(--transition);
+    pointer-events: none;
+}
+
+.copy-toast.show {
+    opacity: 1;
+    bottom: 50px;
+}
+
 /* --- Dark Mode --- */
 @media (prefers-color-scheme: dark) {
     :root {
@@ -489,6 +522,10 @@ table.data td {
 
     .site-footer {
         background: #2D3436 !important;
+    }
+
+    .copy-toast {
+        background: var(--primary);
     }
 
     .site-header {

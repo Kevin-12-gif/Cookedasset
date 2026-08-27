@@ -17,7 +17,7 @@
                 <a href="index.html">Home</a>
                 <a href="terms.html">Terms</a>
                 <a href="privacy.html">Privacy</a>
-                <a href="mailto:contact@cookedasset.com">Contact</a>
+                <span class="email-copy" onclick="copyEmail('contact@cookedasset.com')">Contact</span>
             </div>
         </nav>
     </header>
@@ -118,7 +118,7 @@
                 <li><strong>Creating your in-game account.</strong> Your Meta User ID is the unique identifier we store on our servers; your Meta username is stored as your display name so other players can see who you are.</li>
                 <li><strong>Saving your progress.</strong> So you can quit the App and come back without losing what you've earned or unlocked.</li>
                 <li><strong>Multiplayer and social features.</strong> Showing your username on leaderboards, in lobbies, and during matches with other players.</li>
-                <li><strong>Service operation.</strong> Authenticating that you actually own the App on the Meta Quest store, preventing cheating, and enforcing our <a href="terms.html">Terms of Service</a>.</li>
+                <li><strong>Service operation.</strong> Authenticating that you actually own the App on the Meta Quest store, preventing cheating, and enforcing our Terms of Service.</li>
                 <li><strong>Diagnostics.</strong> Fixing bugs and improving stability based on anonymous crash reports.</li>
             </ul>
             <p>
@@ -140,10 +140,9 @@
             </ol>
             <p>
                 Information you provide to Meta (your real name, email, payment method, account settings, headset
-                telemetry, etc.) is handled by Meta under <strong>Meta's own privacy policy</strong>, not ours. We never see that
-                information. To learn how Meta handles your data, see Meta's
-                <a href="https://www.meta.com/legal/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a> and
-                <a href="https://www.meta.com/legal/quest/supplemental-meta-platforms-technologies-privacy-policy/" target="_blank" rel="noopener">Supplemental Meta Platforms Technologies Privacy Policy</a>.
+                telemetry, etc.) is handled by Meta under Meta's own privacy policy, not ours. We never see that
+                information. To learn how Meta handles your data, see Meta's Privacy Policy and
+                Supplemental Meta Platforms Technologies Privacy Policy.
             </p>
 
             <h2 id="legal-basis">4. Legal basis for processing (GDPR / UK GDPR)</h2>
@@ -174,7 +173,7 @@
                 is active. If you ask us to delete your account, we will delete or irreversibly anonymize the
                 associated data within <strong>30 days</strong>, except where applicable law requires longer retention.
                 Anonymous diagnostic logs are retained for up to <strong>180 days</strong> and then deleted.
-                See <a href="#deletion">Section 9.1</a> for how to request deletion.
+                See Section 9.1 for how to request deletion.
             </p>
 
             <h2 id="security">7. Security</h2>
@@ -196,7 +195,7 @@
                 violate the United States Children's Online Privacy Protection Act ("COPPA") or comparable laws.
                 If a parent or guardian believes that a child has provided personal information to us outside
                 Meta's parent-managed account flow, please contact us at
-                <a href="mailto:privacy@cookedasset.com">privacy@cookedasset.com</a> and we will delete it.
+                <span class="email-copy" onclick="copyEmail('privacy@cookedasset.com')">privacy@cookedasset.com</span> and we will delete it.
             </p>
 
             <h2 id="rights">9. Your rights and choices</h2>
@@ -211,7 +210,7 @@
                 <li><strong>Lodge a complaint</strong> with your local data-protection authority.</li>
             </ul>
             <p>
-                To exercise any of these rights, email <a href="mailto:privacy@cookedasset.com">privacy@cookedasset.com</a>
+                To exercise any of these rights, email <span class="email-copy" onclick="copyEmail('privacy@cookedasset.com')">privacy@cookedasset.com</span>
                 from the contact method associated with your Meta account, or from any address that allows us to
                 verify your identity. We will respond within the timeframe required by applicable law (typically
                 30 days).
@@ -223,9 +222,9 @@
                 stored about them. You do not need to still have the App installed to make this request.
             </p>
             <ul>
-                <li><strong>How to ask.</strong> Email <a href="mailto:privacy@cookedasset.com">privacy@cookedasset.com</a> with the subject line "Data deletion request." Send it from the contact method associated with your Meta account, or include your Meta username so we can verify the request is from you.</li>
+                <li><strong>How to ask.</strong> Email <span class="email-copy" onclick="copyEmail('privacy@cookedasset.com')">privacy@cookedasset.com</span> with the subject line "Data deletion request." Send it from the contact method associated with your Meta account, or include your Meta username so we can verify the request is from you.</li>
                 <li><strong>What we delete.</strong> Your in-game account and the data tied to it: Meta User ID, Meta username, gameplay progress, in-game stats, settings, and preferences described in Section 1.</li>
-                <li><strong>Timeline.</strong> We will confirm receipt within 7 days and complete deletion or irreversible anonymization within 30 days.</li>
+                <li><strong>Timeline.</strong> We will confirm receipt within 7 days and complete deletion or irreversible anonymization within <strong>30 days</strong>.</li>
                 <li><strong>No fee.</strong> Deletion is free. We will never charge you, require a purchase, or condition deletion on anything else.</li>
             </ul>
             <p>
@@ -278,8 +277,8 @@
             </p>
             <p>
                 <strong>Cookedasset</strong><br>
-                Email (privacy): <a href="mailto:privacy@cookedasset.com">privacy@cookedasset.com</a><br>
-                Email (general): <a href="mailto:contact@cookedasset.com">contact@cookedasset.com</a>
+                Email (privacy): <span class="email-copy" onclick="copyEmail('privacy@cookedasset.com')">privacy@cookedasset.com</span><br>
+                Email (general): <span class="email-copy" onclick="copyEmail('contact@cookedasset.com')">contact@cookedasset.com</span>
             </p>
         </article>
     </main>
@@ -290,9 +289,23 @@
             <div class="footer-links">
                 <a href="terms.html">Terms</a>
                 <a href="privacy.html">Privacy</a>
-                <a href="mailto:contact@cookedasset.com">contact@cookedasset.com</a>
+                <span class="email-copy" onclick="copyEmail('contact@cookedasset.com')">contact@cookedasset.com</span>
             </div>
         </div>
     </footer>
+
+    <div id="copy-toast" class="copy-toast">Email copied to clipboard!</div>
+
+    <script>
+        function copyEmail(email) {
+            navigator.clipboard.writeText(email).then(() => {
+                const toast = document.getElementById('copy-toast');
+                toast.classList.add('show');
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 2000);
+            });
+        }
+    </script>
 </body>
 </html>
