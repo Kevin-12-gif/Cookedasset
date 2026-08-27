@@ -17,7 +17,7 @@
                 <a href="index.html">Home</a>
                 <a href="terms.html">Terms</a>
                 <a href="privacy.html">Privacy</a>
-                <span class="email-copy" onclick="copyEmail('contact@cookedasset.com')">Contact</span>
+                <a href="mailto:contact@cookedasset.com">Contact</a>
             </div>
         </nav>
     </header>
@@ -66,23 +66,9 @@
             <div class="footer-links">
                 <a href="terms.html">Terms</a>
                 <a href="privacy.html">Privacy</a>
-                <span class="email-copy" onclick="copyEmail('contact@cookedasset.com')">contact@cookedasset.com</span>
+                <a href="mailto:contact@cookedasset.com">contact@cookedasset.com</a>
             </div>
         </div>
     </footer>
-
-    <div id="copy-toast" class="copy-toast">Email copied to clipboard!</div>
-
-    <script>
-        function copyEmail(email) {
-            navigator.clipboard.writeText(email).then(() => {
-                const toast = document.getElementById('copy-toast');
-                toast.classList.add('show');
-                setTimeout(() => {
-                    toast.classList.remove('show');
-                }, 2000);
-            });
-        }
-    </script>
 </body>
 </html>
